@@ -1,0 +1,15 @@
+- name: Установка программы 1.exe в Windows-машины
+  hosts: dc01
+  gather_facts: false
+  tasks:
+    - name: Копирование filetest.exe на удаленную машину
+      win_copy:
+        src: /home/sni/wintest/filetest.exe
+        dest: C:\test\filetest.exe
+      delegate_to: "{{ inventory_hostname }}"
+      become: true
+
+    - name: Запуск команды установки
+      win_command: C:\test\filetest.exe
+      delegate_to: "{{ inventory_hostname }}"
+      become: true
