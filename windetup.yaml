@@ -1,4 +1,4 @@
-- name: Установка программы 1.exe в Windows-машины
+- name: Установка программы в Windows-машины
   hosts: dc01
   gather_facts: false
   tasks:
