@@ -1,10 +1,11 @@
 ---
-   - name: Create TEST Folder on Windows
-     hosts: dc01
-     gather_facts: false
+- name: Создание папки TEST на Windows-компьютере
+  hosts: dc01
+  gather_facts: false
 
-     tasks:
-     - name: Create TEST Folder
-       win_file:
-         path: "{{ test_folder_path }}\\{{ test_folder }}"
-         state: directory
+  tasks:
+    - name: Создание папки TEST на диске C
+      win_file:
+        path: C:\TEST
+        state: directory
+      delegate_to: 192.168.72.160
